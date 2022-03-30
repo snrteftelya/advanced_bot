@@ -241,7 +241,6 @@ async def mix_news(message: types.Message):
                 f"{v['article_title']}\n\n" \
                 f"{v['article_url']}"
         await message.answer(news)
-        time.sleep(5)
 
 
 @dp.message_handler(lambda message: 'Спорт' in message.text)
