@@ -199,7 +199,7 @@ def kaleidoscope_class():
     r = requests.get(url=url, headers=headers)
     soup = BeautifulSoup(r.text, "lxml")
     articles_cards = soup.find_all(class_="news_item")
-    return kaleidoscope_class()
+    return articles_cards
 
 def technological_class():
     headers = {
