@@ -56,7 +56,6 @@ def check_news_update():
 
     url = "https://www.belta.by/all_news/"
     r = requests.get(url=url, headers=headers)
-
     soup = BeautifulSoup(r.text, "lxml")
     articles_cards = soup.find_all(class_="news_item lenta_item")
 
@@ -103,207 +102,127 @@ def check_news_update():
 
 
 def sport_class():
-    sport_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Спорт":
-                    sport_news_keys.append(dictionary)
-    return sport_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0"
+    }
+    url = "https://www.belta.by/sport/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 
 def world_class():
-    world_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "В_мире":
-                    world_news_keys.append(dictionary)
-    return world_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36"
+    }
+
+    url = "https://www.belta.by/world"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 
 def society_class():
-    society_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Общество":
-                    society_news_keys.append(dictionary)
-    return society_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0"
+    }
+
+    url = "https://www.belta.by/society/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 def economy_class():
-    economy_news_keys = []
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36"
+    }
 
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Экономика":
-                    economy_news_keys.append(dictionary)
-    return economy_news_keys
+    url = "https://www.belta.by/economics/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 def politics_class():
-    politics_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Политика":
-                    politics_news_keys.append(dictionary)
-    return politics_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0"
+    }
+
+    url = "https://www.belta.by/politics/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 def regions_class():
-    regions_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Регионы":
-                    regions_news_keys.append(dictionary)
-    return regions_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36"
+    }
+
+    url = "https://www.belta.by/regions/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 def accident_class():
-    accident_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Происшествия":
-                    accident_news_keys.append(dictionary)
-    return accident_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0"
+    }
+
+    url = "https://www.belta.by/incident/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 def president_class():
-    president_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Президент":
-                    president_news_keys.append(dictionary)
-    return president_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36"
+    }
+
+    url = "https://www.belta.by/president/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 def kaleidoscope_class():
-    kaleidoscope_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Калейдоскоп":
-                    kaleidoscope_news_keys.append(dictionary)
-    return kaleidoscope_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0"
+    }
+
+    url = "https://www.belta.by/kaleidoscope/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return kaleidoscope_class()
 
 def technological_class():
-    technological_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Технологии":
-                    technological_news_keys.append(dictionary)
-    return technological_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36"
+    }
+
+    url = "https://www.belta.by/tech/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
 def cultural_class():
-    cultural_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Культура":
-                    cultural_news_keys.append(dictionary)
-    return cultural_news_keys
+    headers = {
+        "user-agent": "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0"
+    }
 
-def playbill_class():
-    playbill_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Афиша":
-                    playbill_news_keys.append(dictionary)
-    return playbill_news_keys
+    url = "https://www.belta.by/culture/"
+    r = requests.get(url=url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    articles_cards = soup.find_all(class_="news_item")
+    return articles_cards
 
-def comments_class():
-    comments_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Комментарии":
-                    comments_news_keys.append(dictionary)
-    return comments_news_keys
-
-def interview_class():
-    interview_news_keys = []
-    with open("news_dict.json") as file:
-        news_dict = json.load(file)
-        for dictionary in news_dict:
-            nested_dictionary = news_dict[dictionary]
-            for elements in dictionary:
-                element = nested_dictionary['article_topic']
-                if element == "Интервью":
-                    interview_news_keys.append(dictionary)
-    return interview_news_keys
-
-def mix_class():
-    mix_news_keys = []
-    if len(sport_class()) >0:
-        mix_news_keys.append(sport_class()[-1])
-    if len(world_class()) > 0:
-        mix_news_keys.append(world_class()[-1])
-    if len(society_class()) >0:
-        mix_news_keys.append(society_class()[-1])
-    if len(economy_class()) > 0:
-        mix_news_keys.append(economy_class()[-1])
-    if len(politics_class()) > 0:
-        mix_news_keys.append(politics_class()[-1])
-    if len(regions_class()) > 0:
-        mix_news_keys.append(regions_class()[-1])
-    if len(accident_class()) > 0:
-        mix_news_keys.append(accident_class()[-1])
-    if len(president_class()) > 0:
-        mix_news_keys.append(president_class()[-1])
-    if len(kaleidoscope_class()) > 0:
-        mix_news_keys.append(kaleidoscope_class()[-1])
-    if len(technological_class()) > 0:
-        mix_news_keys.append(technological_class()[-1])
-    if len(cultural_class()) > 0:
-        mix_news_keys.append(cultural_class()[-1])
-    if len(playbill_class()) > 0:
-        mix_news_keys.append(playbill_class()[-1])
-    if len(comments_class()) > 0:
-        mix_news_keys.append(comments_class()[-1])
-    if len(interview_class()) > 0:
-        mix_news_keys.append(interview_class()[-1])
-    return mix_news_keys
 
 
 
@@ -323,10 +242,6 @@ def main():
     kaleidoscope_class()
     technological_class()
     cultural_class()
-    playbill_class()
-    comments_class()
-    interview_class()
-    mix_class()
 
 
 
